@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		ABF2FEED271EAF3600CEBBFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF2FEEC271EAF3600CEBBFE /* AppDelegate.swift */; };
 		ABF2FEEF271EAF3600CEBBFE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF2FEEE271EAF3600CEBBFE /* SceneDelegate.swift */; };
-		ABF2FEF1271EAF3600CEBBFE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF2FEF0271EAF3600CEBBFE /* MainViewController.swift */; };
+		ABF2FEF1271EAF3600CEBBFE /* CategoriesMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF2FEF0271EAF3600CEBBFE /* CategoriesMovieViewController.swift */; };
 		ABF2FEF4271EAF3600CEBBFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABF2FEF2271EAF3600CEBBFE /* Main.storyboard */; };
 		ABF2FEF6271EAF3700CEBBFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABF2FEF5271EAF3700CEBBFE /* Assets.xcassets */; };
 		ABF2FEF9271EAF3700CEBBFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABF2FEF7271EAF3700CEBBFE /* LaunchScreen.storyboard */; };
+		ABF2FF05271ECAAF00CEBBFE /* FavoriteMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF2FF04271ECAAF00CEBBFE /* FavoriteMovieViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		ABF2FEE9271EAF3500CEBBFE /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF2FEEC271EAF3600CEBBFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABF2FEEE271EAF3600CEBBFE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		ABF2FEF0271EAF3600CEBBFE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		ABF2FEF0271EAF3600CEBBFE /* CategoriesMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesMovieViewController.swift; sourceTree = "<group>"; };
 		ABF2FEF3271EAF3600CEBBFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ABF2FEF5271EAF3700CEBBFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ABF2FEF8271EAF3700CEBBFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ABF2FEFA271EAF3700CEBBFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ABF2FF04271ECAAF00CEBBFE /* FavoriteMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMovieViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +80,8 @@
 		ABF2FF01271EAF7A00CEBBFE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				ABF2FEF0271EAF3600CEBBFE /* MainViewController.swift */,
+				ABF2FEF0271EAF3600CEBBFE /* CategoriesMovieViewController.swift */,
+				ABF2FF04271ECAAF00CEBBFE /* FavoriteMovieViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -169,7 +172,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABF2FEF1271EAF3600CEBBFE /* MainViewController.swift in Sources */,
+				ABF2FEF1271EAF3600CEBBFE /* CategoriesMovieViewController.swift in Sources */,
+				ABF2FF05271ECAAF00CEBBFE /* FavoriteMovieViewController.swift in Sources */,
 				ABF2FEED271EAF3600CEBBFE /* AppDelegate.swift in Sources */,
 				ABF2FEEF271EAF3600CEBBFE /* SceneDelegate.swift in Sources */,
 			);
