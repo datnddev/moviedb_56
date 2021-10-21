@@ -10,7 +10,7 @@ import Foundation
 struct Company: Decodable {
     var id: Int
     var name: String
-    var logoPath: String
+    var logoPath: String?
     
     enum Codingkeys: String, CodingKey {
         case id

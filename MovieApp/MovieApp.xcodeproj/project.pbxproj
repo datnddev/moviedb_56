@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB8838572720EF0B00A00990 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8838562720EF0B00A00990 /* Constants.swift */; };
+		AB8838592720F3D100A00990 /* APIFetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8838582720F3D100A00990 /* APIFetching.swift */; };
+		AB88385B2720FF5A00A00990 /* keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB88385A2720FF5A00A00990 /* keys.plist */; };
 		ABBAEF182720054500A72562 /* CategoriesMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBAEF172720054500A72562 /* CategoriesMovie.swift */; };
 		ABBAEF1A2720063800A72562 /* MovieDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBAEF192720063800A72562 /* MovieDetail.swift */; };
 		ABBAEF20272009B100A72562 /* Trailer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBAEF1F272009B100A72562 /* Trailer.swift */; };
@@ -22,6 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AB8838562720EF0B00A00990 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		AB8838582720F3D100A00990 /* APIFetching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFetching.swift; sourceTree = "<group>"; };
+		AB88385A2720FF5A00A00990 /* keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = keys.plist; sourceTree = "<group>"; };
 		ABBAEF172720054500A72562 /* CategoriesMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesMovie.swift; sourceTree = "<group>"; };
 		ABBAEF192720063800A72562 /* MovieDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetail.swift; sourceTree = "<group>"; };
 		ABBAEF1F272009B100A72562 /* Trailer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trailer.swift; sourceTree = "<group>"; };
@@ -49,6 +55,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AB8838552720EC7200A00990 /* ApiServices */ = {
+			isa = PBXGroup;
+			children = (
+				AB8838562720EF0B00A00990 /* Constants.swift */,
+				AB8838582720F3D100A00990 /* APIFetching.swift */,
+			);
+			path = ApiServices;
+			sourceTree = "<group>";
+		};
 		ABF2FEE0271EAF3500CEBBFE = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +91,7 @@
 				ABF2FEF5271EAF3700CEBBFE /* Assets.xcassets */,
 				ABF2FEF7271EAF3700CEBBFE /* LaunchScreen.storyboard */,
 				ABF2FEFA271EAF3700CEBBFE /* Info.plist */,
+				AB88385A2720FF5A00A00990 /* keys.plist */,
 			);
 			path = MovieApp;
 			sourceTree = "<group>";
@@ -99,6 +115,7 @@
 		ABF2FF02271EAF8200CEBBFE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AB8838552720EC7200A00990 /* ApiServices */,
 				ABBAEF3C2720376900A72562 /* Genre.swift */,
 				ABBAEF172720054500A72562 /* CategoriesMovie.swift */,
 				ABBAEF192720063800A72562 /* MovieDetail.swift */,
@@ -174,6 +191,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB88385B2720FF5A00A00990 /* keys.plist in Resources */,
 				ABF2FEF9271EAF3700CEBBFE /* LaunchScreen.storyboard in Resources */,
 				ABF2FEF6271EAF3700CEBBFE /* Assets.xcassets in Resources */,
 				ABF2FEF4271EAF3600CEBBFE /* Main.storyboard in Resources */,
@@ -189,9 +207,11 @@
 			files = (
 				ABBAEF3D2720376900A72562 /* Genre.swift in Sources */,
 				ABF2FEF1271EAF3600CEBBFE /* CategoriesMovieViewController.swift in Sources */,
+				AB8838592720F3D100A00990 /* APIFetching.swift in Sources */,
 				ABBAEF3F2720377E00A72562 /* Company.swift in Sources */,
 				ABF2FF05271ECAAF00CEBBFE /* FavoriteMovieViewController.swift in Sources */,
 				ABF2FEED271EAF3600CEBBFE /* AppDelegate.swift in Sources */,
+				AB8838572720EF0B00A00990 /* Constants.swift in Sources */,
 				ABBAEF20272009B100A72562 /* Trailer.swift in Sources */,
 				ABBAEF1A2720063800A72562 /* MovieDetail.swift in Sources */,
 				ABF2FEEF271EAF3600CEBBFE /* SceneDelegate.swift in Sources */,
