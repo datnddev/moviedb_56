@@ -7,12 +7,11 @@
 
 import Foundation
 
-enum Categories: String {
+enum Categories: String, CaseIterable {
     case popular = "popular"
     case topRated = "top_rated"
     case upcoming = "upcoming"
     case nowPlaying = "now_playing"
-    case lastest = "latest"
 }
 
 enum Constant {
