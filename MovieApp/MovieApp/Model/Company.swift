@@ -23,6 +23,6 @@ struct Company: Decodable {
         
         id = try container.decode(Int.self, forKey: .id)
         name = try container.decode(String.self, forKey: .name)
-        logoPath = try container.decode(String.self, forKey: .logoPath)
+        logoPath = try container.decodeIfPresent(String.self, forKey: .logoPath)
     }
 }
