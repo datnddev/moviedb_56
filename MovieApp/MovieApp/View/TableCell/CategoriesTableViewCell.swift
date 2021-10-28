@@ -49,3 +49,13 @@ extension CategoriesTableViewCell: UICollectionViewDataSource {
         return cell
     }
 }
+
+extension CategoriesTableViewCell: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let detailVC = storyboard.instantiateViewController(identifier: "MovieDetailViewController")
+            as MovieDetailViewController
+        detailVC.movie = movies[indexPath.row]
+        self.window?.rootViewController?.present(detailVC, animated: true, completion: nil)
+    }
+}
