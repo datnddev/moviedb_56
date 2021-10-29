@@ -14,6 +14,7 @@ struct MovieDetail: Decodable {
     var backdropImage: String
     var posterImage: String
     var releaseDate: String
+    var average: Double
     var genres: [Genre]
     var producer: [Company]
     var results: [Trailer]
@@ -25,6 +26,7 @@ struct MovieDetail: Decodable {
         case backdropImage = "backdrop_path"
         case posterImage = "poster_path"
         case releaseDate = "release_date"
+        case average = "vote_average"
         case genres
         case producer = "production_companies"
         case videos
@@ -40,6 +42,7 @@ struct MovieDetail: Decodable {
         backdropImage = try container.decode(String.self, forKey: .backdropImage)
         posterImage = try container.decode(String.self, forKey: .posterImage)
         releaseDate = try container.decode(String.self, forKey: .releaseDate)
+        average = try container.decode(Double.self, forKey: .average)
         genres = try container.decode([Genre].self, forKey: .genres)
         producer = try container.decode([Company].self, forKey: .producer)
         

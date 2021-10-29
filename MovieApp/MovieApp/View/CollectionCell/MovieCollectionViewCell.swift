@@ -12,8 +12,7 @@ final class MovieCollectionViewCell: UICollectionViewCell, ReusableViewProtocol 
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var dateLabel: UILabel!
     
-    private var imagesCache = Cache<NSString, UIImage>()
-    private let utilityQueue = DispatchQueue.global(qos: .utility)   
+    private var imagesCache = Cache<NSString, UIImage>()   
     
     func configure(movie: Movie) {
         titleLabel.text = movie.title
@@ -26,7 +25,6 @@ final class MovieCollectionViewCell: UICollectionViewCell, ReusableViewProtocol 
         } else {
             movieImage.loadImageUrl(path: movie.posterImage) { [weak self] image in
                 guard let self = self, let image = image else { return }
-                self.movieImage.image = image
                 self.imagesCache.insert(image, for: key)
             }
         }
