@@ -15,14 +15,44 @@ final class MovieDetailViewController: UIViewController {
     @IBOutlet private weak var ratingLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var producerCollectionView: UICollectionView!
-
+    @IBOutlet private weak var hearthImageView: UIImageView!
+    
     var movieId: Int?
     private var movieDetail: MovieDetail?
+    private let isExistMovie = CoreDataManager.shared.isExistMovie
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
+        setupView()
+        setupAction()
         loadingMovieDetail()
+    }
+    
+    @objc
+    func onLikeMovieTapped() {
+        guard let movieId = movieId,
+              let movieDetail = movieDetail else { return }
+    
+        if isExistMovie(movieId) {
+            CoreDataManager.shared.deleteFavoriteMovie(id: movieId)
+        } else {
+            CoreDataManager.shared.addFavoriteMovie(movie: movieDetail)
+        }
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "dataChanged"), object: nil)
+        hearthImageView.tintColor = isExistMovie(movieId) ? .red : .white
+    }
+    
+    private func setupAction() {
+        hearthImageView.isUserInteractionEnabled = true
+        hearthImageView.addGestureRecognizer(UITapGestureRecognizer(
+                                                target: self,
+                                                action: #selector(onLikeMovieTapped)
+        ))
+    }
+    
+    private func setupView() {
+        hearthImageView.tintColor = .clear
     }
     
     private func updateData(movie: MovieDetail) {
@@ -32,6 +62,7 @@ final class MovieDetailViewController: UIViewController {
         descriptionLabel.text = movie.overview       
         backdropImageView.loadImageUrl(path: movie.backdropImage, completion: nil)
         posterImageView.loadImageUrl(path: movie.posterImage, completion: nil)
+        hearthImageView.tintColor = isExistMovie(movie.id) ? .red : .white
     }
     
     private func loadingMovieDetail() {

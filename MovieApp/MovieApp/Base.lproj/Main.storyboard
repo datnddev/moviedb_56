@@ -211,6 +211,7 @@
                     <connections>
                         <outlet property="backdropImageView" destination="KrW-km-od0" id="BUW-6a-sie"/>
                         <outlet property="descriptionLabel" destination="HYY-IJ-aAM" id="0iV-Fx-67O"/>
+                        <outlet property="hearthImageView" destination="i5B-FY-fXn" id="6iG-1c-jcs"/>
                         <outlet property="posterImageView" destination="Yrc-xt-ZAe" id="hyG-2U-VSs"/>
                         <outlet property="producerCollectionView" destination="4xV-6D-PvQ" id="0ma-wR-d90"/>
                         <outlet property="ratingLabel" destination="LU8-Xg-q7N" id="fvw-Mj-z2f"/>

@@ -38,7 +38,7 @@ final class CoreDataManager {
 }
 
 extension CoreDataManager {
-    func checkExistMovie(id: Int) -> Bool {
+    func isExistMovie(id: Int) -> Bool {
         return getMovies().contains(where: {$0.id == id})
     }
     
@@ -57,6 +57,7 @@ extension CoreDataManager {
             return false
         }
         persistentContainer.viewContext.delete(movie)
+        CoreDataManager.shared.saveContext()
         return true
     }
     

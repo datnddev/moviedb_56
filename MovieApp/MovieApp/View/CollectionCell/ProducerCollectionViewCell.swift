@@ -41,6 +41,7 @@ final class ProducerCollectionViewCell: UICollectionViewCell, ReusableViewProtoc
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        contentView.backgroundColor = .white
         logoImageView.contentMode = .scaleAspectFit
         nameLabel.adjustsFontSizeToFitWidth = true
     }
