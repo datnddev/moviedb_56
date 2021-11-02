@@ -59,6 +59,21 @@
             </objects>
             <point key="canvasLocation" x="628" y="-563"/>
         </scene>
+        <!--Movie Search View Controller-->
+        <scene sceneID="P30-Te-esI">
+            <objects>
+                <viewController storyboardIdentifier="MovieSearchViewController" id="5u6-pw-8Wa" customClass="MovieSearchViewController" customModule="MovieApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PpU-lB-9zh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="UOD-dd-mks"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5KR-NQ-HlX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1456" y="-559"/>
+        </scene>
         <!--Movie Detail View Controller-->
         <scene sceneID="To2-pL-a2Z">
             <objects>
@@ -221,7 +236,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xTV-MH-80D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1540.5797101449277" y="-563.16964285714278"/>
+            <point key="canvasLocation" x="2233" y="-581"/>
         </scene>
         <!--Home-->
         <scene sceneID="s1P-cy-RrL">
@@ -299,6 +314,7 @@
             <point key="canvasLocation" x="-243" y="248"/>
         </scene>
     </scenes>
+    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
@@ -308,6 +324,9 @@
         <namedColor name="primaryColor">
             <color red="0.054901960784313725" green="0.10196078431372549" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

@@ -19,8 +19,30 @@ final class CategoriesMovieViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigationBar()
         setupTableView()
         loadData()
+    }
+    
+    private func setupNavigationBar() {
+        navigationController?.navigationBar.titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: UIColor.white
+        ]
+        navigationController?.navigationBar.barTintColor = UIColor.hex_0E1A2B
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "magnifyingglass.circle.fill"),
+            style: .plain,
+            target: self,
+            action: #selector(searchIconDidTapped))
+    }
+    
+    @objc
+    private func searchIconDidTapped() {
+        let searchVC = UIStoryboard(name: "Main", bundle: nil)
+            .instantiateViewController(identifier: "MovieSearchViewController")
+            as! MovieSearchViewController
+        searchVC.modalPresentationStyle = .fullScreen
+        present(searchVC, animated: true, completion: nil)
     }
     
     private func setupTableView() {
