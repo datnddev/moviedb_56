@@ -46,4 +46,8 @@ enum Constant {
     static func getImageLink(path: String) -> String {
         return "https://image.tmdb.org/t/p/w500\(path)"
     }
+    
+    static func getGenresLink() -> String {
+        return "https://api.themoviedb.org/3/genre/movie/list?api_key=\(getAPIKey())"
+    }
 }

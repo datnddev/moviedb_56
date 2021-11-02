@@ -14,7 +14,7 @@ struct CategoriesMovie: Decodable {
 struct Movie: Decodable {
     var id: Int
     var title: String
-    var posterImage: String
+    var posterImage: String?
     var releaseDate: String
     
     enum CodingKeys: String, CodingKey {

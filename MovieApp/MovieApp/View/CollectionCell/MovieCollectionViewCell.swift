@@ -16,7 +16,8 @@ final class MovieCollectionViewCell: UICollectionViewCell, ReusableViewProtocol 
         titleLabel.text = movie.title
         dateLabel.text = movie.releaseDate
         
-        movieImage.loadImageUrl(path: movie.posterImage)
+        guard let posterPath = movie.posterImage else { return }
+        movieImage.loadImageUrl(path: posterPath)
     }
     
     override func awakeFromNib() {

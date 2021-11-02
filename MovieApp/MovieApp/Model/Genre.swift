@@ -11,3 +11,7 @@ struct Genre: Decodable {
     var id: Int
     var name: String
 }
+
+struct Genres: Decodable {
+    var genres: [Genre]
+}
