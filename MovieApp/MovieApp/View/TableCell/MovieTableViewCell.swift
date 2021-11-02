@@ -12,23 +12,12 @@ final class MovieTableViewCell: UITableViewCell, ReusableViewProtocol {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var releaseDateLabel: UILabel!
     
-    private var imagesCache = Cache<NSString, UIImage>()
-    
     func configure(movie: FavoriteMovie) {
         titleLabel.text = movie.title
         releaseDateLabel.text = "Release: \(movie.releaseDate ?? "")"
         
         guard let posterPath = movie.posterPath else { return }
-        let key = NSString(string: posterPath)
-
-        if let cachedImage = imagesCache.value(for: key) {
-            movieImageView.image = cachedImage
-        } else {
-            movieImageView.loadImageUrl(path: posterPath) { [weak self] image in
-                guard let self = self, let image = image else { return }
-                self.imagesCache.insert(image, for: key)
-            }
-        }
+        movieImageView.loadImageUrl(path: posterPath)
     }
     
     override func awakeFromNib() {

@@ -60,8 +60,8 @@ final class MovieDetailViewController: UIViewController {
         releaseDateLabel.text = "Release: \(movie.releaseDate)"
         ratingLabel.text = "Average: \(String(format: "%.1f", movie.average))/10"
         descriptionLabel.text = movie.overview       
-        backdropImageView.loadImageUrl(path: movie.backdropImage, completion: nil)
-        posterImageView.loadImageUrl(path: movie.posterImage, completion: nil)
+        backdropImageView.loadImageUrl(path: movie.backdropImage)
+        posterImageView.loadImageUrl(path: movie.posterImage)
         hearthImageView.tintColor = isExistMovie(movie.id) ? .red : .white
     }
     

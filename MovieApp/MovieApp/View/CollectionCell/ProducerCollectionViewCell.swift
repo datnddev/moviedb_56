@@ -11,26 +11,15 @@ final class ProducerCollectionViewCell: UICollectionViewCell, ReusableViewProtoc
     @IBOutlet private weak var logoImageView: UIImageView!
     @IBOutlet private weak var nameLabel: UILabel!
     
-    private var imagesCache = Cache<NSString, UIImage>()
-    
     func configure(company: Company) {
         guard let logoPath = company.logoPath else {
+            logoImageView.isHidden = true
             nameLabel.isHidden = false
             nameLabel.text = company.name
             return
         }
-        
-        let key = NSString(string: logoPath)
-        
-        if let imageCache = imagesCache.value(for: key) {
-            logoImageView.isHidden = false
-            logoImageView.image = imageCache
-        } else {
-            logoImageView.loadImageUrl(path: logoPath) { [weak self] image in
-                guard let self = self, let image = image else { return }                
-                self.imagesCache.insert(image, for: key)
-            }
-        }
+
+        logoImageView.loadImageUrl(path: logoPath)
     }
     
     override func prepareForReuse() {
