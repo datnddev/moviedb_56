@@ -20,6 +20,14 @@ final class MovieTableViewCell: UITableViewCell, ReusableViewProtocol {
         movieImageView.loadImageUrl(path: posterPath)
     }
     
+    func configure(movie: Movie) {
+        titleLabel.text = movie.title
+        releaseDateLabel.text = "Release: \(movie.releaseDate)"
+        
+        guard let posterPath = movie.posterImage else { return }
+        movieImageView.loadImageUrl(path: posterPath)
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         movieImageView.contentMode = .scaleAspectFill
