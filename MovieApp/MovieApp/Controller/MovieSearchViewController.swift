@@ -14,6 +14,7 @@ final class MovieSearchViewController: UIViewController {
     @IBOutlet private weak var backImageView: UIImageView!
     private var genres = [Genre]()
     private var movies = [Movie]()
+    private var selectedIndexPath: IndexPath?
     
     private enum LayoutOptions {
         static let defaultPadding: CGFloat = 8
@@ -32,10 +33,23 @@ final class MovieSearchViewController: UIViewController {
         setupCollectionView()
         setupTableView()
         getGenres()
-        searchMovie(query: "find", genre: Genre(id: 16, name: ""))
+        setupAction()
+    }
+    
+    private func setupAction() {
+        backImageView.isUserInteractionEnabled = true
+        backImageView.addGestureRecognizer(
+            UITapGestureRecognizer(target: self, action: #selector(didTapBack))
+        )
+    }
+    
+    @objc
+    private func didTapBack() {
+        dismiss(animated: true, completion: nil)
     }
     
     private func setupSearchBar() {
+        searchBar.delegate = self
         let searchField = searchBar.value(forKey: "searchField") as? UITextField
         searchField?.layer.backgroundColor = UIColor.white.cgColor
         searchField?.textColor = .hex_0E1A2B
@@ -84,7 +98,7 @@ final class MovieSearchViewController: UIViewController {
         }
     }
     
-    private func searchMovie(query: String, genre: Genre){
+    private func searchMovie(query: String, genre: Genre?){
         APIFeching().fetchingData(typeGeneric: CategoriesMovie.self,
                                   url: Constant.getSearchLink(query: query, genre: genre)) { result in
             switch result {
@@ -102,6 +116,26 @@ final class MovieSearchViewController: UIViewController {
     }
 }
 
+extension MovieSearchViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let query = searchBar.text, !query.isEmpty else {
+            view.endEditing(true)
+            return
+        }
+        guard let indexPath = selectedIndexPath else {
+            view.endEditing(true)
+            searchMovie(query: query, genre: nil)
+            return
+        }
+        view.endEditing(true)
+        searchMovie(query: query, genre: genres[indexPath.row])
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
+    }
+}
+
 extension MovieSearchViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return genres.count
@@ -115,7 +149,11 @@ extension MovieSearchViewController: UICollectionViewDataSource {
     }
 }
 
-extension MovieSearchViewController: UICollectionViewDelegate { }
+extension MovieSearchViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedIndexPath = indexPath
+    }
+}
 
 extension MovieSearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -133,5 +171,13 @@ extension MovieSearchViewController: UITableViewDataSource {
 extension MovieSearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return LayoutOptions.tableViewHeight
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let detailVC = storyboard.instantiateViewController(identifier: "MovieDetailViewController")
+            as MovieDetailViewController
+        detailVC.movieId = movies[indexPath.row].id
+        present(detailVC, animated: true, completion: nil)
     }
 }

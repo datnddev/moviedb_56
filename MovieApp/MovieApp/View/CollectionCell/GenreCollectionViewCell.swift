@@ -7,7 +7,8 @@
 
 import UIKit
 
-class GenreCollectionViewCell: UICollectionViewCell, ReusableViewProtocol {
+final class GenreCollectionViewCell: UICollectionViewCell, ReusableViewProtocol {
+    @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var titleLabel: UILabel!
     
     func configure(title: String) {
@@ -20,5 +21,11 @@ class GenreCollectionViewCell: UICollectionViewCell, ReusableViewProtocol {
         layer.cornerRadius = 20
         selectedView.backgroundColor = .yellow
         selectedBackgroundView = selectedView
+    }
+    
+    override var isSelected: Bool {
+        didSet {
+            containerView.backgroundColor = isSelected ? .blue : .white
+        }
     }
 }

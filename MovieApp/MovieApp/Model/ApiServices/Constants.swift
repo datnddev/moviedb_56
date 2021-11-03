@@ -34,9 +34,9 @@ enum Constant {
         return "\(baseUrl)/movie/\(type.rawValue)?api_key=\(getAPIKey())&page=\(page)"
     }
     
-    static func getSearchLink(query: String, genre: Genre) -> String {
+    static func getSearchLink(query: String, genre: Genre?) -> String {
         let queryWithOutSpace = query.replacingOccurrences(of: " ", with: "+")
-        return "\(baseUrl)/search/movie?api_key=\(getAPIKey())&query=\(queryWithOutSpace)&with_genres=\(genre.id)"
+        return "\(baseUrl)/search/movie?api_key=\(getAPIKey())&query=\(queryWithOutSpace)&with_genres=\(genre?.id)"
     }
     
     static func getDetailLink(for idMovie: Int) -> String {
