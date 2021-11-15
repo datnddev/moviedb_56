@@ -45,6 +45,15 @@ final class CategoriesMovieViewController: UIViewController {
         present(searchVC, animated: true, completion: nil)
     }
     
+    @objc
+    private func headerDidTapped(sender: UITapGestureRecognizer) {
+        guard let section = sender.view?.tag else { return }
+        let url = Constant.getCategoriesLink(for: homeSections[section].kind)
+        let movieVc = MovieByCategoryViewController()
+        movieVc.url = url
+        navigationController?.pushViewController(movieVc, animated: true)
+    }
+    
     private func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
@@ -108,6 +117,11 @@ extension CategoriesMovieViewController: UITableViewDataSource {
             frame: CGRect(x: 0, y: 0, width: tableView.frame.width,
             height: LayoutOptions.heightForHeaderInSection))
         headerView.configure(homeSection: homeSections[section])
+        headerView.tag = section
+        headerView.isUserInteractionEnabled = true
+        headerView.addGestureRecognizer(UITapGestureRecognizer(
+                                            target: self,
+                                            action: #selector(headerDidTapped(sender:))))
         return headerView
     }
     
