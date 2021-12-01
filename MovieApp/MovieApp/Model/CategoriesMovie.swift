@@ -8,6 +8,7 @@
 import Foundation
 
 struct CategoriesMovie: Decodable {
+    var page: Int
     var results: [Movie]
 }
 

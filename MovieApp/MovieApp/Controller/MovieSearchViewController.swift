@@ -14,7 +14,11 @@ final class MovieSearchViewController: UIViewController {
     @IBOutlet private weak var backImageView: UIImageView!
     private var genres = [Genre]()
     private var movies = [Movie]()
-    private var selectedIndexPath: IndexPath?
+    private var selectedIndexPath: IndexPath? {
+        didSet {
+            print(selectedIndexPath)
+        }
+    }
     
     private enum LayoutOptions {
         static let defaultPadding: CGFloat = 8
@@ -56,9 +60,15 @@ final class MovieSearchViewController: UIViewController {
     }
     
     private func setupTableView() {
+        movieTableView.keyboardDismissMode = .onDrag
         movieTableView.register(MovieTableViewCell.nib, forCellReuseIdentifier: MovieTableViewCell.identifier)
         movieTableView.dataSource = self
         movieTableView.delegate = self
+    }
+    
+    @objc
+    private func movieTableViewDidTapped() {
+        view.endEditing(true)
     }
     
     private func setupCollectionView() {
@@ -114,6 +124,10 @@ final class MovieSearchViewController: UIViewController {
             }
         }
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
 }
 
 extension MovieSearchViewController: UISearchBarDelegate {
@@ -150,8 +164,16 @@ extension MovieSearchViewController: UICollectionViewDataSource {
 }
 
 extension MovieSearchViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        let cell = collectionView.cellForItem(at: indexPath) as! GenreCollectionViewCell
+        
+        if cell.isSelected {
+            selectedIndexPath = nil
+            collectionView.selectItem(at: nil, animated: false, scrollPosition: [])
+            return false
+        }
         selectedIndexPath = indexPath
+        return true
     }
 }
 
@@ -180,4 +202,9 @@ extension MovieSearchViewController: UITableViewDelegate {
         detailVC.movieId = movies[indexPath.row].id
         present(detailVC, animated: true, completion: nil)
     }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+    }
 }
+

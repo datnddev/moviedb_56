@@ -26,6 +26,28 @@ final class FavoriteMovieViewController: UIViewController {
         loadData()
     }
     
+    private func setupNavigationBar() {
+        title = "Favorite"
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.configureWithOpaqueBackground()
+        navBarAppearance.largeTitleTextAttributes = [
+            .foregroundColor: UIColor.white
+        ]
+        navBarAppearance.backgroundColor = UIColor.hex_0E1A2B
+        navBarAppearance.titleTextAttributes = [
+            .foregroundColor: UIColor.white
+        ]
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.standardAppearance = navBarAppearance
+        navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNavigationBar()
+    }
+    
     private func setupTableView() {
         movieTableView.register(MovieTableViewCell.nib,
                                 forCellReuseIdentifier: MovieTableViewCell.identifier)

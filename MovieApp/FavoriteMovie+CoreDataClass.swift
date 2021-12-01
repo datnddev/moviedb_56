@@ -2,7 +2,7 @@
 //  FavoriteMovie+CoreDataClass.swift
 //  MovieApp
 //
-//  Created by datNguyem on 01/11/2021.
+//  Created by datNguyem on 29/11/2021.
 //
 //
 

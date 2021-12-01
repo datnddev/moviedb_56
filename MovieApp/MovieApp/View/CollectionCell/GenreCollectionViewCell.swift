@@ -25,6 +25,7 @@ final class GenreCollectionViewCell: UICollectionViewCell, ReusableViewProtocol 
     
     override var isSelected: Bool {
         didSet {
+            print(isSelected)
             containerView.backgroundColor = isSelected ? .blue : .white
         }
     }

@@ -28,7 +28,7 @@
             </objects>
             <point key="canvasLocation" x="-1265" y="-140"/>
         </scene>
-        <!--Movie-->
+        <!--Categories Movie View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="CategoriesMovieViewController" customModule="MovieApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -36,8 +36,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SCF-YE-I0X">
+                                <rect key="frame" x="0.0" y="88" width="414" height="0.0"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" id="lo8-eJ-LOc"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" estimatedSectionHeaderHeight="50" sectionFooterHeight="1" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TRI-5E-1Ne">
-                                <rect key="frame" x="18" y="148" width="396" height="657"/>
+                                <rect key="frame" x="18" y="96" width="396" height="709"/>
                                 <color key="backgroundColor" name="PrimaryColor"/>
                             </tableView>
                         </subviews>
@@ -45,12 +52,15 @@
                         <color key="backgroundColor" name="primaryColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="TRI-5E-1Ne" secondAttribute="bottom" constant="8" id="2Qo-r3-Nwx"/>
-                            <constraint firstItem="TRI-5E-1Ne" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="AGX-OT-o70"/>
+                            <constraint firstItem="TRI-5E-1Ne" firstAttribute="top" secondItem="SCF-YE-I0X" secondAttribute="bottom" constant="8" id="AGX-OT-o70"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TRI-5E-1Ne" secondAttribute="trailing" id="Jyk-TS-Ve3"/>
                             <constraint firstItem="TRI-5E-1Ne" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="18" id="R80-Dr-hAh"/>
+                            <constraint firstItem="SCF-YE-I0X" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="anQ-ZB-NDg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SCF-YE-I0X" secondAttribute="trailing" id="bc7-Di-TFJ"/>
+                            <constraint firstItem="SCF-YE-I0X" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="fwZ-Ru-2GY"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Movie" id="QaW-a4-ukH"/>
+                    <navigationItem key="navigationItem" id="QaW-a4-ukH"/>
                     <connections>
                         <outlet property="tableView" destination="TRI-5E-1Ne" id="gEh-EY-5mO"/>
                     </connections>
@@ -290,14 +300,44 @@
             </objects>
             <point key="canvasLocation" x="2257" y="-563"/>
         </scene>
+        <!--Movie By Category View Controller-->
+        <scene sceneID="sM9-Yj-5jY">
+            <objects>
+                <viewController storyboardIdentifier="MovieByCategoryView" id="euv-zr-juz" customClass="MovieByCategoryViewController" customModule="MovieApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9mQ-lh-usr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MS9-BI-7LE">
+                                <rect key="frame" x="0.0" y="54" width="414" height="798"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="zPa-a5-zlo"/>
+                        <color key="backgroundColor" name="primaryColor"/>
+                        <constraints>
+                            <constraint firstItem="MS9-BI-7LE" firstAttribute="top" secondItem="zPa-a5-zlo" secondAttribute="top" constant="10" id="2DR-hv-vKb"/>
+                            <constraint firstItem="zPa-a5-zlo" firstAttribute="trailing" secondItem="MS9-BI-7LE" secondAttribute="trailing" id="6hS-9j-htJ"/>
+                            <constraint firstItem="MS9-BI-7LE" firstAttribute="leading" secondItem="zPa-a5-zlo" secondAttribute="leading" id="bIw-ch-Jgn"/>
+                            <constraint firstItem="zPa-a5-zlo" firstAttribute="bottom" secondItem="MS9-BI-7LE" secondAttribute="bottom" constant="10" id="v9o-Ma-D6F"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="movieTableView" destination="MS9-BI-7LE" id="uZn-zb-VBk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kbo-LS-uCl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3082" y="-561"/>
+        </scene>
         <!--Home-->
         <scene sceneID="s1P-cy-RrL">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3Fd-Ga-dTF" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="AOv-fL-Eob"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="56D-sV-x93">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="56D-sV-x93">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="largeTitleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -312,7 +352,7 @@
             </objects>
             <point key="canvasLocation" x="-243" y="-563"/>
         </scene>
-        <!--Favorite-->
+        <!--Favorite Movie View Controller-->
         <scene sceneID="RVD-eQ-WMF">
             <objects>
                 <viewController id="B7H-ou-36z" customClass="FavoriteMovieViewController" customModule="MovieApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -321,7 +361,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" contentViewInsetsToSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3K-9E-xW0">
-                                <rect key="frame" x="5" y="145" width="404" height="663"/>
+                                <rect key="frame" x="5" y="93" width="404" height="715"/>
                                 <color key="backgroundColor" name="primaryColor"/>
                             </tableView>
                         </subviews>
@@ -334,7 +374,7 @@
                             <constraint firstItem="g3K-9E-xW0" firstAttribute="top" secondItem="X9D-pn-fOa" secondAttribute="top" constant="5" id="qSX-tn-oPZ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Favorite" id="tyy-Th-G3I"/>
+                    <navigationItem key="navigationItem" id="tyy-Th-G3I"/>
                     <connections>
                         <outlet property="movieTableView" destination="g3K-9E-xW0" id="jJ1-PA-feT"/>
                     </connections>
@@ -349,8 +389,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DzP-wd-tpN" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Favorite" image="heart.fill" catalog="system" id="rmN-B1-hLo"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="sM3-iA-fe0">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sM3-iA-fe0">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="largeTitleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -377,6 +417,9 @@
         <namedColor name="primaryColor">
             <color red="0.054901960784313725" green="0.10196078431372549" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

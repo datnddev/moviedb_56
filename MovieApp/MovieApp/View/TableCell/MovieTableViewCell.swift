@@ -15,8 +15,8 @@ final class MovieTableViewCell: UITableViewCell, ReusableViewProtocol {
     func configure(movie: FavoriteMovie) {
         titleLabel.text = movie.title
         releaseDateLabel.text = "Release: \(movie.releaseDate ?? "")"
-        
-        guard let posterPath = movie.posterPath else { return }
+        print(movie.imageLink)
+        guard let posterPath = movie.imageLink else { return }
         movieImageView.loadImageUrl(path: posterPath)
     }
     
@@ -25,7 +25,7 @@ final class MovieTableViewCell: UITableViewCell, ReusableViewProtocol {
         releaseDateLabel.text = "Release: \(movie.releaseDate)"
         
         guard let posterPath = movie.posterImage else { return }
-        movieImageView.loadImageUrl(path: posterPath)
+        ImageServices.shared.load(path: posterPath, for: movieImageView)
     }
     
     override func awakeFromNib() {
@@ -43,6 +43,7 @@ final class MovieTableViewCell: UITableViewCell, ReusableViewProtocol {
         super.prepareForReuse()
         titleLabel.text = nil
         releaseDateLabel.text = nil
+        ImageServices.shared.cancel(for: movieImageView)
         movieImageView.image = nil
     }   
 }

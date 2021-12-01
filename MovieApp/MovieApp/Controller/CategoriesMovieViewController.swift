@@ -19,16 +19,30 @@ final class CategoriesMovieViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigationBar()
         setupTableView()
         loadData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNavigationBar()
+    }
+    
     private func setupNavigationBar() {
-        navigationController?.navigationBar.titleTextAttributes = [
-            NSAttributedString.Key.foregroundColor: UIColor.white
+        title = "Movie"
+        let navBarAppearance = UINavigationBarAppearance()
+        navBarAppearance.configureWithOpaqueBackground()
+        navBarAppearance.largeTitleTextAttributes = [
+            .foregroundColor: UIColor.white
         ]
-        navigationController?.navigationBar.barTintColor = UIColor.hex_0E1A2B
+        navBarAppearance.backgroundColor = UIColor.hex_0E1A2B
+        navBarAppearance.titleTextAttributes = [
+            .foregroundColor: UIColor.white
+        ]
+
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.standardAppearance = navBarAppearance
+        navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: UIImage(systemName: "magnifyingglass.circle.fill"),
             style: .plain,
@@ -48,9 +62,12 @@ final class CategoriesMovieViewController: UIViewController {
     @objc
     private func headerDidTapped(sender: UITapGestureRecognizer) {
         guard let section = sender.view?.tag else { return }
-        let url = Constant.getCategoriesLink(for: homeSections[section].kind)
-        let movieVc = MovieByCategoryViewController()
-        movieVc.url = url
+        let movieVc = UIStoryboard(name: "Main", bundle: .main)
+            .instantiateViewController(withIdentifier: "MovieByCategoryView")
+            as! MovieByCategoryViewController
+        movieVc.categories = homeSections[section].kind
+        movieVc.title = homeSections[section].title
+        
         navigationController?.pushViewController(movieVc, animated: true)
     }
     
