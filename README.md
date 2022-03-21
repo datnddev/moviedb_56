@@ -1,8 +1,4 @@
-# MovieDB 56 (P1)
-* Trainee:  [To:6170020][DN_OE48_IOS] Nguyen Duy Dat (W)
-* Trainer: TuanLVT
-* Start date: 10/18/2021
-* End date: 10/29/2021
-* Break task: https://sal.vn/89Kznf
-* Redmine: https://edu-redmine.sun-asterisk.vn/projects/moviedb-56
+# MovieDB
+
      
+![Simulator Screen Recording - iPhone 11 - 2022-03-21 at 11 42 03](https://user-images.githubusercontent.com/74282183/159206392-fca17005-e098-487d-b64f-23fcd3621b68.gif)
